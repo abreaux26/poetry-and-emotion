@@ -1,5 +1,7 @@
-<% @poems.each do |poem| %>
+<% @poems.each do |poem_info| %>
   <section class='poem'>
-    <p>poem</p>
-  </section>
+    <p>Title: <%= poem_info[:title] %></p>
+    <p>Author: <%= poem_info[:author] %></p>
+    <p>Poem: <%= poem_info[:lines].join(" ") %></p>
+  </section><br>
 <% end %>

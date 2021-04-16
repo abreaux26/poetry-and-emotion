@@ -14,5 +14,13 @@ RSpec.describe 'As a user' do
     it 'I should see a list of the first 10 poems' do
       expect(page).to have_css(".poem", count: 10)
     end
+
+    it 'I should see Title, Author, and the poem' do
+      first_poem = find(".poem", match: :first)
+
+      within (first_poem) do
+        expect(page).to have_content(first_poem.text)
+      end
+    end
   end
 end
