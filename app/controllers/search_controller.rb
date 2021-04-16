@@ -3,6 +3,6 @@ class SearchController < ApplicationController
     response = Faraday.get("https://poetrydb.org/author/#{params[:author]}")
 
     data = response.body
-    @parsed_data = JSON.parse(data, symbolize_names: true)
+    @poems = JSON.parse(data, symbolize_names: true).first(10)
   end
 end
