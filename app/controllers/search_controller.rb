@@ -1,9 +1,5 @@
 class SearchController < ApplicationController
   def index
-    # response = Faraday.get("https://poetrydb.org/author/#{params[:author]}")
-    #
-    # data = response.body
-    # @poems = JSON.parse(data, symbolize_names: true).first(10)
     @poems = PoemService.search(params[:author])
 
     # @poems.each do |poem_info|

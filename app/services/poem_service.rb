@@ -1,6 +1,7 @@
 class PoemService
   def self.search(author)
     get_data("/author/#{author}").map do |data|
+      data[:tones] = ToneService.tones(data[:lines].join(" "))
       Poem.new(data)
     end
   end

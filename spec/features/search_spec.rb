@@ -22,5 +22,13 @@ RSpec.describe 'As a user' do
         expect(page).to have_content(first_poem.text)
       end
     end
+
+    it 'I should see the tone or tones listed for each poem' do
+      first_tones = find(".tones", match: :first)
+
+      within (first_tones) do
+        expect(page).to have_content(first_tones.text)
+      end
+    end
   end
 end

@@ -1,7 +1,14 @@
 <% @poems.each do |poem| %>
   <section class='poem'>
-    <p>Title: <%= poem.title %></p>
+    <h2>Title: <%= poem.title %></h2>
     <p>Author: <%= poem.author %></p>
     <p>Poem: <%= poem.lines %></p>
-  </section><br>
+    <p class="tones">
+      Tone(s):
+      <ul><% poem.tones.each do |tone| %>
+        <li>Score: <%= tone.score %></li>
+        <li>Name: <%= tone.name %></li><br>
+      <% end %></ul>
+    </p>
+  </section><hr>
 <% end %>
