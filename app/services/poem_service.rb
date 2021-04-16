@@ -1,6 +1,8 @@
 class PoemService
   def self.search(author)
-    get_data("/author/#{author}")
+    get_data("/author/#{author}").map do |data|
+      Poem.new(data)
+    end
   end
 
   def self.connection
